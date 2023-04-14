@@ -14,14 +14,18 @@ import {
 } from '../types';
 import { ComponentTypesEnum, MessageTypesEnum } from '../enums';
 import { WhatsAppOptions } from '../interfaces';
-import { API_URI } from '../constants';
 import { HttpClient } from '../utils';
 
 export class MessageService {
-  private readonly uri: string;
+  private readonly http: HttpClient;
 
   constructor(private readonly options: WhatsAppOptions) {
-    this.uri = `${API_URI}/${this.options.cloudApiVersion}/${this.options.phoneNumberId}/messages`;
+    this.http = HttpClient.createClient({
+      baseUrl: `https://graph.facebook.com/${this.options.cloudApiVersion}/${this.options.phoneNumberId}`,
+      headers: {
+        authorization: `Bearer ${this.options.accessToken}`,
+      },
+    });
   }
 
   private messageWrapper<T extends MessageTypesEnum, U extends ComponentTypesEnum>(
@@ -58,11 +62,7 @@ export class MessageService {
   async sendText(body: TextObject, recipient: number, replyMessageId?: string): Promise<MessageResponse> {
     const payload = this.messageWrapper(MessageTypesEnum.Text, body, recipient.toString(), replyMessageId);
 
-    const { data } = await HttpClient.post<MessageResponse>(this.uri, payload, {
-      headers: {
-        authorization: `Bearer ${this.options.accessToken}`,
-      },
-    });
+    const { data } = await this.http.post<MessageResponse>('messages', payload);
 
     return data;
   }

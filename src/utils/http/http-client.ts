@@ -1,40 +1,44 @@
 import * as https from 'https';
 import * as http from 'http';
 
-import { RequestOptions, Response } from './interfaces';
+import { HttpClientOptions, RequestOptions, Response } from './interfaces';
 
 export class HttpClient {
-  static async get<T>(url: string, options?: RequestOptions): Promise<Response<T>> {
+  private constructor(private readonly options: HttpClientOptions) {
+    this.options.headers = {
+      Accept: 'application/json',
+      'Content-Type': 'application/json; charset=UTF-8',
+      ...options.headers,
+    };
+  }
+
+  static createClient(options: HttpClientOptions) {
+    return new HttpClient(options);
+  }
+
+  async get<T>(url: string, options?: RequestOptions): Promise<Response<T>> {
     return this.request<T>('GET', url, undefined, options);
   }
 
-  static async post<T>(url: string, data?: any, options?: RequestOptions): Promise<Response<T>> {
+  async post<T>(url: string, data?: any, options?: RequestOptions): Promise<Response<T>> {
     return this.request<T>('POST', url, data, options);
   }
 
-  static async put<T>(url: string, data?: any, options?: RequestOptions): Promise<Response<T>> {
+  async put<T>(url: string, data?: any, options?: RequestOptions): Promise<Response<T>> {
     return this.request<T>('PUT', url, data, options);
   }
 
-  static async patch<T>(url: string, data?: any, options?: RequestOptions): Promise<Response<T>> {
+  async patch<T>(url: string, data?: any, options?: RequestOptions): Promise<Response<T>> {
     return this.request<T>('PATCH', url, data, options);
   }
 
-  static async delete<T>(url: string, options?: RequestOptions): Promise<Response<T>> {
+  async delete<T>(url: string, options?: RequestOptions): Promise<Response<T>> {
     return this.request<T>('DELETE', url, undefined, options);
   }
 
-  private static async request<T>(
-    method: string,
-    url: string,
-    data?: any,
-    options?: RequestOptions,
-  ): Promise<Response<T>> {
+  private async request<T>(method: string, url: string, data?: any, options?: RequestOptions): Promise<Response<T>> {
     return new Promise<Response<T>>((resolve, reject) => {
-      const headers =
-        options && options.headers
-          ? { Accept: 'application/json', 'Content-Type': 'application/json; charset=UTF-8', ...options.headers }
-          : {};
+      url = this.options.baseUrl ? `${this.options.baseUrl}/${url}` : url;
       const urlObject = new URL(url);
       const protocol = urlObject.protocol === 'https:' ? https : http;
       const requestOptions: https.RequestOptions = {
@@ -42,7 +46,7 @@ export class HttpClient {
         hostname: urlObject.hostname,
         port: urlObject.port,
         path: urlObject.pathname + urlObject.search,
-        headers,
+        headers: this.options.headers,
       };
 
       const request = protocol.request(requestOptions, (res) => {

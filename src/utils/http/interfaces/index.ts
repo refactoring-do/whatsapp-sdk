@@ -7,3 +7,8 @@ export interface Response<T> {
   status: number;
   statusText: string;
 }
+
+export interface HttpClientOptions {
+  headers?: { [key: string]: string };
+  baseUrl?: string;
+}
