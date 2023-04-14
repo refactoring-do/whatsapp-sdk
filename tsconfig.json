@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "baseUrl": "./",
+    "declaration": true,
+    "outDir": "./lib",
+    "removeComments": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "sourceMap": false
+  },
+  "include": ["src", "index.ts"],
+  "exclude": ["node_modules", "tests", "example"]
+}
