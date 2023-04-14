@@ -1,5 +1,5 @@
 {
-  "name": "whatsapp-sdk",
+  "name": "@refactoring-do/whatsapp-sdk",
   "version": "1.0.0",
   "description": "WhatsApp Cloud API SDK for Node.js",
   "main": "lib/index.js",
