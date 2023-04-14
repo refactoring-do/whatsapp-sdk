@@ -1,1 +1,1 @@
-export { WhatsAppOptions } from './message-options.interface';
+export { WhatsAppOptions } from './whatsapp-options.interface';
