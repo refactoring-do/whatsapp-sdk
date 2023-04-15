@@ -6,7 +6,7 @@ export class BaseService {
   protected readonly http: HttpClient;
 
   constructor(options: ClientOptions) {
-    this.http = HttpClient.createClient({
+    this.http = new HttpClient({
       baseUrl: `${API_URI}/${options.cloudApiVersion}/${options.phoneNumberId}`,
       headers: {
         authorization: `Bearer ${options.accessToken}`,

@@ -4,16 +4,12 @@ import * as http from 'http';
 import { HttpClientOptions, RequestOptions, Response } from './interfaces';
 
 export class HttpClient {
-  private constructor(private readonly options: HttpClientOptions) {
+  constructor(private readonly options: HttpClientOptions) {
     this.options.headers = {
       Accept: 'application/json',
       'Content-Type': 'application/json; charset=UTF-8',
       ...options.headers,
     };
-  }
-
-  static createClient(options: HttpClientOptions) {
-    return new HttpClient(options);
   }
 
   async get<T>(url: string, options?: RequestOptions): Promise<Response<T>> {
