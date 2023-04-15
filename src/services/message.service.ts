@@ -12,16 +12,17 @@ import {
   VideoMediaObject,
 } from '../types';
 import { ComponentTypesEnum, MessageTypesEnum } from '../enums';
-import { WhatsAppOptions } from '../interfaces';
+import { createWrappedMessage } from '../utils';
+import { ClientOptions } from '../interfaces';
 import { BaseService } from './base.service';
 
 export class MessageService extends BaseService {
-  constructor(options: WhatsAppOptions) {
+  constructor(options: ClientOptions) {
     super(options);
   }
 
   async sendText(body: TextObject, recipient: string, replyMessageId?: string): Promise<MessageResponse> {
-    const payload = this.messageWrapper(MessageTypesEnum.Text, body, recipient, replyMessageId);
+    const payload = createWrappedMessage(MessageTypesEnum.Text, body, recipient, replyMessageId);
 
     const { data } = await this.http.post<MessageResponse>('messages', payload);
 
@@ -29,7 +30,7 @@ export class MessageService extends BaseService {
   }
 
   async sendAudio(body: AudioMediaObject, recipient: string, replyMessageId?: string): Promise<MessageResponse> {
-    const payload = this.messageWrapper(MessageTypesEnum.Audio, body, recipient, replyMessageId);
+    const payload = createWrappedMessage(MessageTypesEnum.Audio, body, recipient, replyMessageId);
 
     const { data } = await this.http.post<MessageResponse>('messages', payload);
 
@@ -37,7 +38,7 @@ export class MessageService extends BaseService {
   }
 
   async sendContacts(body: [ContactObject], recipient: string, replyMessageId?: string): Promise<MessageResponse> {
-    const payload = this.messageWrapper(MessageTypesEnum.Contacts, body, recipient, replyMessageId);
+    const payload = createWrappedMessage(MessageTypesEnum.Contacts, body, recipient, replyMessageId);
 
     const { data } = await this.http.post<MessageResponse>('messages', payload);
 
@@ -45,7 +46,7 @@ export class MessageService extends BaseService {
   }
 
   async sendDocument(body: DocumentMediaObject, recipient: string, replyMessageId?: string): Promise<MessageResponse> {
-    const payload = this.messageWrapper(MessageTypesEnum.Document, body, recipient, replyMessageId);
+    const payload = createWrappedMessage(MessageTypesEnum.Document, body, recipient, replyMessageId);
 
     const { data } = await this.http.post<MessageResponse>('messages', payload);
 
@@ -53,7 +54,7 @@ export class MessageService extends BaseService {
   }
 
   async sendImage(body: ImageMediaObject, recipient: string, replyMessageId?: string): Promise<MessageResponse> {
-    const payload = this.messageWrapper(MessageTypesEnum.Image, body, recipient, replyMessageId);
+    const payload = createWrappedMessage(MessageTypesEnum.Image, body, recipient, replyMessageId);
 
     const { data } = await this.http.post<MessageResponse>('messages', payload);
 
@@ -61,7 +62,7 @@ export class MessageService extends BaseService {
   }
 
   async sendVideo(body: VideoMediaObject, recipient: string, replyMessageId?: string): Promise<MessageResponse> {
-    const payload = this.messageWrapper(MessageTypesEnum.Video, body, recipient, replyMessageId);
+    const payload = createWrappedMessage(MessageTypesEnum.Video, body, recipient, replyMessageId);
 
     const { data } = await this.http.post<MessageResponse>('messages', payload);
 
@@ -69,7 +70,7 @@ export class MessageService extends BaseService {
   }
 
   async sendInteractive(body: InteractiveObject, recipient: string, replyMessageId?: string): Promise<MessageResponse> {
-    const payload = this.messageWrapper(MessageTypesEnum.Interactive, body, recipient, replyMessageId);
+    const payload = createWrappedMessage(MessageTypesEnum.Interactive, body, recipient, replyMessageId);
 
     const { data } = await this.http.post<MessageResponse>('messages', payload);
 
@@ -77,7 +78,7 @@ export class MessageService extends BaseService {
   }
 
   async sendLocation(body: LocationObject, recipient: string, replyMessageId?: string): Promise<MessageResponse> {
-    const payload = this.messageWrapper(MessageTypesEnum.Location, body, recipient, replyMessageId);
+    const payload = createWrappedMessage(MessageTypesEnum.Location, body, recipient, replyMessageId);
 
     const { data } = await this.http.post<MessageResponse>('messages', payload);
 
@@ -85,7 +86,7 @@ export class MessageService extends BaseService {
   }
 
   async sendSticker(body: StickerMediaObject, recipient: string, replyMessageId?: string): Promise<MessageResponse> {
-    const payload = this.messageWrapper(MessageTypesEnum.Sticker, body, recipient, replyMessageId);
+    const payload = createWrappedMessage(MessageTypesEnum.Sticker, body, recipient, replyMessageId);
 
     const { data } = await this.http.post<MessageResponse>('messages', payload);
 
@@ -97,7 +98,7 @@ export class MessageService extends BaseService {
     recipient: string,
     replyMessageId?: string,
   ): Promise<MessageResponse> {
-    const payload = this.messageWrapper(MessageTypesEnum.Template, body, recipient, replyMessageId);
+    const payload = createWrappedMessage(MessageTypesEnum.Template, body, recipient, replyMessageId);
 
     const { data } = await this.http.post<MessageResponse>('messages', payload);
 

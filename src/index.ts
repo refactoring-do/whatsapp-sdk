@@ -1,2 +1,1 @@
-export { WhatsApp } from './whatsapp';
-export * from './utils';
+export { Client } from './client';
