@@ -2,7 +2,7 @@ import { createWrappedMessage } from '../src/utils';
 import { MessageTypesEnum } from '../src/enums';
 import { TextObject } from '../src/types';
 
-describe('Client message wrapper', () => {
+describe('Client message wrapper cases', () => {
   test('Should wrap text message properly', () => {
     const text: TextObject = {
       body: 'Hello world',
