@@ -29,5 +29,5 @@ jobs:
         with:
           continue_on_error: false
           auto_fix: false
-          eslint: true
+          tsc: true
           prettier: true
