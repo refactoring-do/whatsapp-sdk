@@ -1,0 +1,33 @@
+name: Linting
+
+on:
+  push:
+    branches:
+      - "*"
+    paths:
+      - '**.ts*'
+      - 'package*.json'
+      - '.github/workflows/linting.yml'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+
+      - name: Installing development dependencies
+        run: npm install
+
+      - name: Run linters
+        uses: wearerequired/lint-action@v1
+        with:
+          continue_on_error: false
+          auto_fix: false
+          eslint: true
+          prettier: true
