@@ -6,7 +6,10 @@
 
 Dependencies-free WhatsApp Cloud API SDK for Node.js.
 
-[![Build and deploy](https://github.com/refactoring-do/whatsapp-sdk/actions/workflows/publish-package.yml/badge.svg)](https://github.com/refactoring-do/whatsapp-sdk/blob/main/.github/workflows/publish-package.yml)
+[![GitHub Package](https://github.com/refactoring-do/whatsapp-sdk/actions/workflows/publish-package-github.yml/badge.svg)](https://github.com/refactoring-do/whatsapp-sdk/blob/main/.github/workflows/publish-package-github.yml)
+[![NPM Package](https://github.com/refactoring-do/whatsapp-sdk/actions/workflows/publish-package-npm.yml/badge.svg)](https://github.com/refactoring-do/whatsapp-sdk/blob/main/.github/workflows/publish-package-npm.yml)
+[![Tests](https://github.com/refactoring-do/whatsapp-sdk/actions/workflows/tests.yml/badge.svg)](https://github.com/refactoring-do/whatsapp-sdk/blob/main/.github/workflows/tests.yml)
+[![Linting and Formatting](https://github.com/refactoring-do/whatsapp-sdk/actions/workflows/lint-format.yml/badge.svg)](https://github.com/refactoring-do/whatsapp-sdk/blob/main/.github/workflows/lint-format.yml)
 
 ## Getting Started
 
