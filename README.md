@@ -10,36 +10,40 @@ Dependencies-free WhatsApp Cloud API SDK for Node.js.
 
 ## Getting Started
 
+Ready to send WhatsApp messages? Prepare to do it as efficiently and simply as possible.
+
 ### Installation
 
-Install with NPM:
+#### Install from NPM
 
 ```sh
 npm install @refactoring-do/whatsapp-sdk
 ```
 
+#### Install from GitHub
+
+```sh
+npm install https://github.com/refactoring-do/whatsapp-sdk
+```
+
 ### Usage example
 
 ```ts
-import { WhatsApp } from "@refactoring-do/whatsapp-sdk";
+import { Client } from "@refactoring-do/whatsapp-sdk";
 
 (async () => {
-  const whatsapp = new WhatsApp({
+  const client = new Client({
     accessToken: 'Introduce here your bearer token',
     cloudApiVersion: 'v15.0',
     phoneNumberId: 000000000000000,
   });
 
-    const data = await whatsapp.service.sendText({ body: 'Hello world from Mars!' }, '10000000000');
-
-    console.log(data);
+  await client.sendText({ body: 'Hello world from Mars!' }, '10000000000');
 })();
 ```
 
-### Author
-
-- [Refactoring, SRL](https://refactoring.do)
-
 ### Credits
 
-Based on [Official Node.js WhatsApp Cloud API](https://github.com/WhatsApp/WhatsApp-Nodejs-SDK)
+This package has been inspired by the [official WhatsApp Cloud API for Node.js](https://github.com/WhatsApp/WhatsApp-Nodejs-SDK). A few improvements and facilities have been added.
+
+Made with ❤️ by [Refactoring, SRL](https://refactoring.do)
