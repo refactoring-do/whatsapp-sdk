@@ -15,7 +15,7 @@ import { MessageTypesEnum, ComponentTypesEnum } from '../enums';
 
 type Payload<U extends ComponentTypesEnum> =
   | AudioMediaObject
-  | Array<ContactObject>
+  | [ContactObject]
   | DocumentMediaObject
   | ImageMediaObject
   | InteractiveObject
