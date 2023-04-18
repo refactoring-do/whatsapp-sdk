@@ -25,6 +25,14 @@ type Payload<U extends ComponentTypesEnum> =
   | TextObject
   | VideoMediaObject;
 
+/**
+ * Creates a wrapped message with the given payload for the specified recipient and message type.
+ *
+ * @param type The type of the message.
+ * @param payload The payload of the message.
+ * @param toNumber The phone number of the recipient.
+ * @param replyMessageId A `string` representing the ID of a message to reply to. This is optional and can be omitted if not needed.
+ */
 export function createWrappedMessage<T extends MessageTypesEnum, U extends ComponentTypesEnum>(
   type: T,
   payload: Payload<U>,
