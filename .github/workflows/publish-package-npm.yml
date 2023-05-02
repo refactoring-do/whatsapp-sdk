@@ -41,6 +41,6 @@ jobs:
           RECIPIENT_NUMBER: ${{ secrets.RECIPIENT_NUMBER }}
 
       - name: Publish package to GitHub
-        run: npm publish
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
