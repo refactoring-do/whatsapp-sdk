@@ -4,6 +4,7 @@
   "description": "WhatsApp Cloud API SDK for Node.js",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "private": false,
   "files": [
     "lib/**/*"
   ],
