@@ -40,7 +40,7 @@ jobs:
           PHONE_NUMBER_ID: ${{ secrets.PHONE_NUMBER_ID }}
           RECIPIENT_NUMBER: ${{ secrets.RECIPIENT_NUMBER }}
 
-      - name: Publish package to GitHub
+      - name: Publish package to NPM
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
