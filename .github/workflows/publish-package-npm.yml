@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: 16
           registry-url: 'https://registry.npmjs.org'
-          scope: '@refactoring-srl'
+          scope: '@refactoring'
 
       - name: Install dependencies
         run: npm ci

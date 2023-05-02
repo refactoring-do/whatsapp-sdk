@@ -6,7 +6,6 @@
 
 Dependencies-free WhatsApp Cloud API SDK for Node.js.
 
-[![GitHub Package](https://github.com/refactoring-do/whatsapp-sdk/actions/workflows/publish-package-github.yml/badge.svg)](https://github.com/refactoring-do/whatsapp-sdk/blob/main/.github/workflows/publish-package-github.yml)
 [![NPM Package](https://github.com/refactoring-do/whatsapp-sdk/actions/workflows/publish-package-npm.yml/badge.svg)](https://github.com/refactoring-do/whatsapp-sdk/blob/main/.github/workflows/publish-package-npm.yml)
 [![Tests](https://github.com/refactoring-do/whatsapp-sdk/actions/workflows/tests.yml/badge.svg)](https://github.com/refactoring-do/whatsapp-sdk/blob/main/.github/workflows/tests.yml)
 [![Linting and Formatting](https://github.com/refactoring-do/whatsapp-sdk/actions/workflows/lint-format.yml/badge.svg)](https://github.com/refactoring-do/whatsapp-sdk/blob/main/.github/workflows/lint-format.yml)
@@ -20,19 +19,13 @@ Ready to send WhatsApp messages? Prepare to do it as efficiently and simply as p
 #### Install from NPM
 
 ```sh
-npm install @refactoring-do/whatsapp-sdk
-```
-
-#### Install from GitHub
-
-```sh
-npm install https://github.com/refactoring-do/whatsapp-sdk
+npm install @refactoring/whatsapp-sdk
 ```
 
 ### Usage example
 
 ```ts
-import { Client } from "@refactoring-do/whatsapp-sdk";
+import { Client } from "@refactoring/whatsapp-sdk";
 
 (async () => {
   const client = new Client({
