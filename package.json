@@ -5,9 +5,7 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "private": false,
-  "files": [
-    "lib/**/*"
-  ],
+  "files": ["lib/**/*"],
   "scripts": {
     "test": "jest --config ./jest.config.json",
     "test:e2e": "jest --config ./jest.e2e.config.json",
@@ -25,8 +23,12 @@
     "url": "git+https://github.com/refactoring-do/whatsapp-sdk.git"
   },
   "keywords": [
+    "refactoring",
+    "whatsapp-sdk",
+    "whatsapp sdk",
     "whatsapp",
     "cloud-api",
+    "whatsapp cloud-api",
     "sdk"
   ],
   "author": "Refactoring, SRL",
