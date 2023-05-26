@@ -2,9 +2,9 @@
 
 <p align="center">
 <img src="./assets/whatsapp-sdk.svg" width="300" alt="@refactoring-do/whatsapp-sdk" />
-</p>
+</p> 
 
-Dependencies-free WhatsApp Cloud API SDK for Node.js.
+Dependency-free WhatsApp Cloud API SDK for Node.js.
 
 [![NPM Package](https://github.com/refactoring-do/whatsapp-sdk/actions/workflows/publish-package-npm.yml/badge.svg)](https://github.com/refactoring-do/whatsapp-sdk/blob/main/.github/workflows/publish-package-npm.yml)
 [![Tests](https://github.com/refactoring-do/whatsapp-sdk/actions/workflows/tests.yml/badge.svg)](https://github.com/refactoring-do/whatsapp-sdk/blob/main/.github/workflows/tests.yml)
@@ -12,7 +12,7 @@ Dependencies-free WhatsApp Cloud API SDK for Node.js.
 
 ## Getting Started
 
-Ready to send WhatsApp messages? Prepare to do it as efficiently and simply as possible.
+Are you ready to send WhatsApp messages? Learn how to do it efficiently and easily.
 
 ### Installation
 
@@ -22,14 +22,14 @@ Ready to send WhatsApp messages? Prepare to do it as efficiently and simply as p
 npm install @refactoring/whatsapp-sdk
 ```
 
-### Usage example
+### Usage Example
 
 ```ts
 import { Client } from "@refactoring/whatsapp-sdk";
 
 (async () => {
   const client = new Client({
-    accessToken: 'Introduce here your bearer token',
+    accessToken: 'Enter your bearer token here',
     cloudApiVersion: 'v15.0',
     phoneNumberId: 000000000000000,
   });
@@ -40,6 +40,6 @@ import { Client } from "@refactoring/whatsapp-sdk";
 
 ### Credits
 
-This package has been inspired by the [official WhatsApp Cloud API for Node.js](https://github.com/WhatsApp/WhatsApp-Nodejs-SDK). A few improvements and facilities have been added.
+This package has been inspired by the [official WhatsApp Cloud API for Node.js](https://github.com/WhatsApp/WhatsApp-Nodejs-SDK). It includes several improvements and enhancements.
 
 Made with ❤️ by [Refactoring, SRL](https://refactoring.do)
